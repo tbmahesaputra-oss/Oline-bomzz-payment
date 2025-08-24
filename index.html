@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment BOMZ 💥👻</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+    body {
+      overflow-x:hidden;
+      color:#fff;
+      position:relative;
+      min-height:100vh;
+    }
+
+    /* Background slideshow */
+    .background {
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background-size:cover;
+      background-position:center;
+      transition:background-image 1s ease-in-out;
+      z-index:-1;
+    }
+
+    .container {
+      max-width:1200px;
+      margin:0 auto;
+      padding:2rem;
+      position:relative;
+      z-index:1;
+    }
+
+    header {
+      text-align:center;
+      margin-bottom:3rem;
+      padding:1rem;
+      background:rgba(0,0,0,0.5);
+      border-radius:20px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size:2.5rem;
+      background:linear-gradient(to right,#fff,#a5b4fc);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle {opacity:0.9;}
+
+    /* Payment Options */
+    .payment-options {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+      gap:2rem;
+      margin-top:2rem;
+    }
+
+    .payment-card {
+      background:rgba(0,0,0,0.5);
+      border-radius:15px;
+      padding:1.5rem;
+      backdrop-filter:blur(10px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.4);
+      transition:0.3s;
+    }
+
+    .payment-card:hover {
+      transform:translateY(-8px);
+      background:rgba(0,0,0,0.6);
+    }
+
+    .payment-header {display:flex; align-items:center; margin-bottom:1rem;}
+    .payment-icon {width:50px; height:50px; margin-right:1rem; object-fit:contain;}
+    .payment-title {font-size:1.3rem; font-weight:600;}
+    .payment-description {opacity:0.8; margin-bottom:1rem;}
+
+    .account-info {
+      background:rgba(255,255,255,0.1);
+      padding:1rem;
+      border-radius:10px;
+      margin-bottom:1rem;
+      cursor:pointer;
+    }
+    .account-info:hover {background:rgba(255,255,255,0.2);}
+    .account-number {font-weight:500;}
+
+    .button-group {display:flex; gap:0.5rem; flex-wrap:wrap;}
+    .payment-button {
+      flex:1;
+      padding:0.7rem 1.5rem;
+      background:linear-gradient(45deg,#6366f1,#8b5cf6);
+      color:#fff;
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      font-weight:600;
+      text-align:center;
+      text-decoration:none;
+    }
+    .payment-button:hover {opacity:0.9;}
+    .whatsapp-button {background:linear-gradient(45deg,#25D366,#128C7E);}
+
+    /* Modal */
+    .modal {
+      display:none;
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.8);
+      align-items:center;
+      justify-content:center;
+      z-index:10;
+    }
+    .modal-content {
+      background:#1e1b4b;
+      padding:2rem;
+      border-radius:20px;
+      text-align:center;
+      max-width:400px;
+      width:90%;
+      color:#fff;
+    }
+    .close-modal {
+      position:absolute; top:15px; right:20px;
+      font-size:1.5rem; cursor:pointer;
+    }
+    .qris-image {background:#fff; padding:1rem; border-radius:10px; margin:1rem auto;}
+    .qris-image img {max-width:100%;}
+
+    footer {
+      text-align:center;
+      margin-top:4rem;
+      padding:1rem;
+      font-size:0.9rem;
+      background:rgba(0,0,0,0.5);
+      border-radius:15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background" id="background"></div>
+
+  <div class="container">
+    <header>
+      <h1>Payment BOMZ 💥👻</h1>
+      <p class="subtitle">All Payment Solution by BOMZZ</p>
+    </header>
+
+    <div class="payment-options">
+      <!-- Dana -->
+      <div class="payment-card">
+        <div class="payment-header">
+          <img src="https://img.icons8.com/color/48/dana.png" class="payment-icon">
+          <div>
+            <h3 class="payment-title">DANA</h3>
+            <p class="payment-description">Bayar menggunakan Dana</p>
+          </div>
+        </div>
+        <div class="account-info" data-number="083819237425">
+          <div class="account-number">083819237425</div>
+          <small>Nama: to tzy</small>
+        </div>
+        <div class="button-group">
+          <button class="payment-button">Pay with Dana</button>
+          <a href="https://wa.me/6283819237425" class="payment-button whatsapp-button">Confirm via WA</a>
+        </div>
+      </div>
+
+      <!-- GoPay -->
+      <div class="payment-card">
+        <div class="payment-header">
+          <img src="https://img.icons8.com/color/48/google-pay-india.png" class="payment-icon">
+          <div>
+            <h3 class="payment-title">GoPay</h3>
+            <p class="payment-description">Bayar menggunakan GoPay</p>
+          </div>
+        </div>
+        <div class="account-info" data-number="082188289728">
+          <div class="account-number">082188289728</div>
+          <small>Nama: bocil beban</small>
+        </div>
+        <div class="button-group">
+          <button class="payment-button">Pay with GoPay</button>
+          <a href="https://wa.me/6282188289728" class="payment-button whatsapp-button">Confirm via WA</a>
+        </div>
+      </div>
+
+      <!-- QRIS -->
+      <div class="payment-card">
+        <div class="payment-header">
+          <img src="https://img.icons8.com/ios-filled/50/qr-code.png" class="payment-icon">
+          <div>
+            <h3 class="payment-title">QRIS</h3>
+            <p class="payment-description">Minta QRIS via Telegram</p>
+          </div>
+        </div>
+        <div class="button-group">
+          <a href="http://t.me//BOMZZMODEJUT" target="_blank" class="payment-button">Minta QRIS</a>
+        </div>
+      </div>
+
+      <!-- OVO -->
+      <div class="payment-card">
+        <div class="payment-header">
+          <img src="https://img.icons8.com/color/48/ovo.png" class="payment-icon">
+          <div>
+            <h3 class="payment-title">OVO</h3>
+            <p class="payment-description">Minta OVO via Telegram</p>
+          </div>
+        </div>
+        <div class="button-group">
+          <a href="http://t.me//BOMZZMODEJUT" target="_blank" class="payment-button">Minta OVO</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>💥👻 TQTO:</p>
+      <p>BOMZZ - DEV WEB</p>
+      <p>OLINE - AYANG BOMZZ</p>
+      <p>CHATGPT - FRIEND BOMZ 💥👻</p>
+    </footer>
+  </div>
+
+  <script>
+    const bg = document.getElementById("background");
+    const images = [
+      "https://files.catbox.moe/0jbrk7.jpg",
+      "https://files.catbox.moe/bxxozl.png",
+      "https://files.catbox.moe/18tgxt.jpg",
+      "https://files.catbox.moe/aeoufh.png",
+      "https://files.catbox.moe/4ti8ja.jpg",
+      "https://files.catbox.moe/zrc4zc.png",
+      "https://files.catbox.moe/vls9oy.jpg"
+    ];
+    let i=0;
+    function changeBg(){
+      bg.style.backgroundImage=`url(${images[i]})`;
+      i=(i+1)%images.length;
+    }
+    setInterval(changeBg,5000);
+    changeBg();
+  </script>
+</body>
+</html>
